@@ -587,6 +587,10 @@
                                     <label for="other">Other</label>
                                 </div>
                             </div>
+                            <div id="otherBarrierGroup" style="display:none; margin-top:0.75rem;">
+                                <label for="otherBarrierText" style="font-size:0.95rem; color:#1A2F2C;">Please describe your barrier:</label>
+                                <input type="text" id="otherBarrierText" name="otherBarrier" placeholder="Describe your barrier…" style="margin-top:0.4rem; width:100%; padding:0.65rem 0.85rem; border:1.5px solid #b0ccc9; border-radius:6px; font-family:inherit; font-size:1rem; background:#fff; color:#1A2F2C;" aria-label="Describe your other barrier">
+                            </div>
                         </div>
 
                         <!-- Accommodation -->
@@ -715,7 +719,14 @@
     </style>
 
     <script>
-        // Show/hide accommodation result based on whether they asked
+                    // Show/hide Other barrier text field
+            document.getElementById('other').addEventListener('change', function() {
+                const group = document.getElementById('otherBarrierGroup');
+                group.style.display = this.checked ? 'block' : 'none';
+                if (!this.checked) document.getElementById('otherBarrierText').value = '';
+            });
+
+            // Show/hide accommodation result based on whether they asked
         document.getElementById('accommodationAsked').addEventListener('change', function() {
             const resultGroup = document.getElementById('accommodationResultGroup');
             resultGroup.style.display = this.value === 'yes' ? 'block' : 'none';
@@ -810,7 +821,6 @@
                 'nobarriers': 'No barriers — just not heard',
                 'other': 'Other'
             };
-
             const caseTypeMap = { 'custody': 'Custody', 'cps': 'CPS', 'guardianship': 'Guardianship', 'visitation': 'Visitation', 'other': 'Other' };
             const caseStatusMap = { 'ongoing': 'Ongoing', 'resolved': 'Resolved', 'appealed': 'Appealed' };
             const selfRepMap = { 'yes_whole': 'Yes', 'no_lawyer': 'No', 'part_time': 'Partial' };
@@ -821,7 +831,11 @@
                 'full_name': 'Full name'
             };
 
-            const mappedBarriers = barriers.map(b => barrierMap[b] || b);
+            const otherBarrierText = document.getElementById('otherBarrierText').value.trim();
+            const mappedBarriers = barriers.map(b => {
+                if (b === 'other' && otherBarrierText) return 'Other: ' + otherBarrierText;
+                return barrierMap[b] || b;
+            });
 
             const properties = {
                 'Name': { 'title': [{ 'text': { 'content': name } }] },
@@ -837,7 +851,8 @@
                 'Story': { 'rich_text': [{ 'text': { 'content': story } }] },
                 'Looking Back': lookingBack ? { 'rich_text': [{ 'text': { 'content': lookingBack } }] } : { 'rich_text': [] },
                 'Story Permission': { 'select': { 'name': permissionMap[storyPermission] || storyPermission } },
-                'Consent': { 'checkbox': true }
+                'Consent': { 'checkbox': true },
+                'Other Barrier Detail': otherBarrierText ? { 'rich_text': [{ 'text': { 'content': otherBarrierText } }] } : { 'rich_text': [] }
             };
 
             // Disable submit while sending
