@@ -1,0 +1,874 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rights Require Routes | Your Story Deserves to Be Heard</title>
+    <meta name="description" content="A place to share experiences of family court and help create a more just, accessible future.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        /* ── Reset & Base ── */
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        /* Skip nav for keyboard/screen-reader users */
+        .skip-link {
+            position: absolute;
+            top: -100%;
+            left: 1rem;
+            background: #135C54;
+            color: #fff;
+            padding: 0.5rem 1rem;
+            border-radius: 0 0 4px 4px;
+            font-weight: 600;
+            z-index: 9999;
+            text-decoration: none;
+        }
+        .skip-link:focus { top: 0; }
+
+        body {
+            font-family: 'Source Sans 3', sans-serif;
+            font-size: 1rem;
+            line-height: 1.65;
+            color: #2F3437;
+            background-color: #F5F1EB;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 700;
+            color: #135C54;
+            line-height: 1.2;
+        }
+        h1 { font-size: clamp(2rem, 5vw, 2.8rem); margin-bottom: 1rem; }
+        h2 { font-size: clamp(1.6rem, 4vw, 2.2rem); margin-bottom: 1rem; }
+        h3 { font-size: clamp(1.2rem, 3vw, 1.4rem); margin-bottom: 0.75rem; }
+
+        .container {
+            max-width: 760px;
+            margin: 0 auto;
+            padding: 0 1.25rem;
+        }
+
+        /* ── Hero ── */
+        .hero {
+            background: linear-gradient(135deg, #135C54 0%, #1A7C72 100%);
+            color: #F5F1EB;
+            padding: 2.5rem 1.25rem 2rem;
+            text-align: center;
+        }
+        .hero h1 { color: #F5F1EB; }
+        .hero p {
+            font-size: 1.05rem;
+            font-weight: 400;
+            max-width: 560px;
+            margin: 0 auto 1.5rem;
+            color: #d8eeea;
+        }
+        .hero-underline {
+            width: 48px;
+            height: 3px;
+            background: #7AAEA7;
+            margin: 0.75rem auto 1.25rem;
+        }
+
+        /* ── Buttons ── */
+        .btn {
+            display: inline-block;
+            padding: 0.85rem 1.75rem;
+            font-family: 'Source Sans 3', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background 0.2s ease, transform 0.2s ease;
+            text-align: center;
+            line-height: 1.3;
+        }
+        .btn:focus-visible {
+            outline: 3px solid #F5F1EB;
+            outline-offset: 3px;
+        }
+        .btn-primary { background-color: #59304D; color: #F5F1EB; }
+        .btn-primary:hover { background-color: #3d1f35; transform: translateY(-1px); }
+        .btn-secondary { background-color: #59304D; color: #F5F1EB; }
+        .btn-secondary:hover { background-color: #3d1f35; transform: translateY(-1px); }
+
+        .button-group {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.75rem;
+            max-width: 520px;
+            margin: 0 auto;
+        }
+        @media (max-width: 480px) {
+            .button-group { grid-template-columns: 1fr; }
+        }
+
+        /* ── Content Sections ── */
+        section { padding: 1.75rem 1.25rem; }
+        section + section { padding-top: 0; }
+        section h2 { text-align: center; margin-bottom: 0.75rem; }
+
+        .section-inner {
+            max-width: 680px;
+            margin: 0 auto;
+        }
+
+        .why-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        @media (max-width: 600px) {
+            .why-grid { grid-template-columns: 1fr; }
+        }
+        .why-card {
+            background: #fff;
+            border-radius: 8px;
+            padding: 1rem 1.1rem;
+            border-left: 3px solid #1A7C72;
+        }
+        .why-card strong {
+            display: block;
+            color: #135C54;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.1rem;
+            margin-bottom: 0.3rem;
+        }
+        .why-card p { font-size: 0.93rem; font-weight: 400; }
+
+        /* ── Crisis Banner ── */
+        .crisis-banner {
+            background: #59304D;
+            color: #F5F1EB;
+            padding: 0.75rem 1.25rem;
+            text-align: center;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+        .crisis-banner a { color: #d8c9d4; text-decoration: underline; }
+
+        /* ── Form ── */
+        .form-section { background: #F5F1EB; padding: 1.5rem 1.25rem 2rem; }
+
+        .form-container {
+            max-width: 680px;
+            margin: 0 auto;
+            background: #ffffff;
+            padding: 1.75rem 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 12px rgba(19,92,84,0.10);
+        }
+        @media (max-width: 480px) {
+            .form-container { padding: 1.25rem 1rem; }
+        }
+
+        .form-group { margin-bottom: 1.25rem; }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.4rem;
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: #135C54;
+        }
+
+        .form-hint {
+            font-size: 0.82rem;
+            color: #5a6a68;
+            font-weight: 400;
+            margin-top: 0.2rem;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 0.7rem 0.85rem;
+            border: 2px solid #c8d8d5;
+            border-radius: 6px;
+            font-family: 'Source Sans 3', sans-serif;
+            font-size: 1rem;
+            font-weight: 400;
+            color: #2F3437;
+            background: #fafafa;
+            transition: border-color 0.2s;
+            -webkit-appearance: none;
+            appearance: none;
+        }
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        select:focus,
+        textarea:focus {
+            outline: none;
+            border-color: #1A7C72;
+            box-shadow: 0 0 0 3px rgba(26,124,114,0.18);
+            background: #fff;
+        }
+        textarea { resize: vertical; min-height: 120px; }
+
+        /* Select arrow */
+        select {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23135C54' stroke-width='2' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 0.85rem center;
+            padding-right: 2.5rem;
+        }
+
+        /* ── Checkbox & Radio items ── */
+        .checkbox-group {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.6rem 1rem;
+            margin-top: 0.5rem;
+        }
+        @media (max-width: 480px) {
+            .checkbox-group { grid-template-columns: 1fr; }
+        }
+
+        .checkbox-item,
+        .radio-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.6rem;
+            cursor: pointer;
+        }
+
+        /* Large, tappable targets */
+        .checkbox-item input[type="checkbox"],
+        .radio-item input[type="radio"] {
+            flex-shrink: 0;
+            width: 22px;
+            height: 22px;
+            margin-top: 1px;
+            cursor: pointer;
+            accent-color: #135C54;
+        }
+
+        .checkbox-item label,
+        .radio-item label {
+            margin: 0;
+            cursor: pointer;
+            font-weight: 400;
+            font-size: 0.95rem;
+            color: #2F3437;
+            line-height: 1.4;
+        }
+
+        /* Consent block */
+        .consent-block {
+            background: #f0f7f6;
+            border: 1px solid #b0d4cf;
+            border-radius: 8px;
+            padding: 1rem 1.1rem;
+            margin-bottom: 1.25rem;
+        }
+        .consent-block .consent-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 700;
+            font-size: 1.05rem;
+            color: #135C54;
+            margin-bottom: 0.6rem;
+        }
+        .consent-block .radio-item { margin-bottom: 0.5rem; }
+
+        /* Required consent checkbox */
+        .required-consent {
+            background: #fdf6fb;
+            border: 1px solid #c4a0b8;
+            border-radius: 8px;
+            padding: 1rem 1.1rem;
+            margin-bottom: 1.25rem;
+        }
+
+        /* Submit button */
+        button[type="submit"] {
+            width: 100%;
+            padding: 1rem;
+            font-family: 'Source Sans 3', sans-serif;
+            font-size: 1.05rem;
+            font-weight: 600;
+            background-color: #59304D;
+            color: #F5F1EB;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.2s ease, transform 0.2s ease;
+            letter-spacing: 0.02em;
+        }
+        button[type="submit"]:hover { background-color: #3d1f35; transform: translateY(-1px); }
+        button[type="submit"]:focus-visible {
+            outline: 3px solid #135C54;
+            outline-offset: 3px;
+        }
+
+        .post-submit-links {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.75rem;
+            margin-top: 1.25rem;
+        }
+        @media (max-width: 480px) {
+            .post-submit-links { grid-template-columns: 1fr; }
+        }
+        .post-submit-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 0.85rem 1rem;
+            font-size: 0.95rem;
+        }
+
+        /* ── Success Message ── */
+        #successMessage {
+            display: none;
+            text-align: center;
+            padding: 2rem 1.5rem;
+            background: #e8f5f3;
+            border-radius: 10px;
+            border-left: 4px solid #1A7C72;
+        }
+        #successMessage.show { display: block; }
+        #successMessage h3 { color: #135C54; margin-bottom: 0.5rem; font-size: 1.5rem; }
+        #successMessage p { color: #2a5e56; font-weight: 500; }
+
+        /* ── Meet Katie ── */
+        .meet-katie {
+            background: #EAE6DF;
+            text-align: center;
+            padding: 2rem 1.25rem;
+        }
+        .katie-container { max-width: 380px; margin: 0 auto; }
+        .katie-photo {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 1rem;
+            border: 4px solid #1A7C72;
+        }
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 0.75rem;
+            margin-top: 1rem;
+            flex-wrap: wrap;
+        }
+        .social-links a {
+            display: inline-block;
+            padding: 0.65rem 1.25rem;
+            background: #135C54;
+            color: #F5F1EB;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: background 0.2s;
+        }
+        .social-links a:hover { background: #59304D; }
+        .social-links a:focus-visible {
+            outline: 3px solid #135C54;
+            outline-offset: 3px;
+        }
+
+        /* ── Accessibility ── */
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after { animation: none !important; transition: none !important; }
+        }
+        @media (prefers-contrast: more) {
+            body { font-weight: 600; }
+            input, select, textarea { border-color: #000; }
+        }
+
+        /* Error state */
+        .field-error {
+            border-color: #c0392b !important;
+            box-shadow: 0 0 0 3px rgba(192,57,43,0.15) !important;
+        }
+        .error-msg {
+            color: #c0392b;
+            font-size: 0.85rem;
+            margin-top: 0.3rem;
+            font-weight: 500;
+        }
+
+        /* Divider */
+        .form-divider {
+            border: none;
+            border-top: 1px solid #dde8e6;
+            margin: 1.25rem 0;
+        }
+    </style>
+</head>
+<body>
+    <a href="#form" class="skip-link">Skip to story form</a>
+
+    <div id="root">
+
+        <!-- Crisis Resources Banner -->
+        <div class="crisis-banner" role="complementary" aria-label="Crisis resources">
+            If you are in crisis, please reach out: <a href="https://988lifeline.org" target="_blank" rel="noopener">988 Suicide &amp; Crisis Lifeline</a> &nbsp;|&nbsp; <a href="https://www.thehotline.org" target="_blank" rel="noopener">National DV Hotline: 1-800-799-7233</a>
+        </div>
+
+        <!-- Hero -->
+        <header role="banner">
+            <section class="hero">
+                <div class="container">
+                    <h1>Your Story Deserves to Be Heard.</h1>
+                    <div class="hero-underline" aria-hidden="true"></div>
+                    <p>A place to share experiences of family court and help create a more just, accessible future.</p>
+                    <div class="button-group">
+                        <a href="#form" class="btn btn-primary">Share Your Story</a>
+                        <a href="https://www.facebook.com/share/g/15zBXXe7DVZ/" target="_blank" rel="noopener" class="btn btn-secondary">Join the Community</a>
+                    </div>
+                </div>
+            </section>
+        </header>
+
+        <main id="main-content">
+
+            <!-- Why This Exists -->
+            <section id="why" aria-labelledby="why-heading">
+                <div class="section-inner">
+                    <h2 id="why-heading">Why This Exists</h2>
+                    <p>No one should have to carry a story alone simply because the system didn't know how to hear it.</p>
+                    <p style="margin-top:0.75rem;">Family court is supposed to serve families. But for many, it becomes a place where voices go unheard, barriers go unaddressed, and the people most affected are left to figure it out alone.</p>
+                    <div class="why-grid" style="margin-top:1rem;">
+                        <div class="why-card">
+                            <strong>Safety</strong>
+                            <p>Your story is treated with care and respect. You control what you share and how it's used.</p>
+                        </div>
+                        <div class="why-card">
+                            <strong>Clarity</strong>
+                            <p>We listen for patterns, not judgment. Your experience helps us understand what's broken.</p>
+                        </div>
+                        <div class="why-card">
+                            <strong>Purpose</strong>
+                            <p>Your story may become part of research, writing, or advocacy — but only with your permission.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Form Section -->
+            <section id="form" class="form-section" aria-labelledby="form-heading">
+                <div class="form-container">
+                    <h2 id="form-heading" style="text-align:center; margin-bottom:1.25rem;">Share Your Story</h2>
+
+                    <form id="storyForm" novalidate>
+
+                        <!-- Basic Info -->
+                        <div class="form-group">
+                            <label for="name">Name <span style="font-weight:400; color:#5a6a68;">(optional)</span></label>
+                            <input type="text" id="name" name="name" placeholder="Your name or leave blank to stay anonymous" autocomplete="name">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email <span style="font-weight:400; color:#5a6a68;">(optional — only if you'd like to stay in touch)</span></label>
+                            <input type="email" id="email" name="email" placeholder="your@email.com" autocomplete="email">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="country">Country <span aria-hidden="true">*</span><span class="sr-only">(required)</span></label>
+                            <input type="text" id="country" name="country" required placeholder="e.g., United States" autocomplete="country-name">
+                            <div class="error-msg" id="country-error" role="alert" aria-live="polite" style="display:none;">Please enter your country.</div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="stateProvince">State / Province / Region <span style="font-weight:400; color:#5a6a68;">(optional)</span></label>
+                            <input type="text" id="stateProvince" name="stateProvince" placeholder="e.g., Texas" autocomplete="address-level1">
+                        </div>
+
+                        <hr class="form-divider">
+
+                        <!-- Case Info -->
+                        <div class="form-group">
+                            <label for="caseType">Type of Case <span aria-hidden="true">*</span></label>
+                            <select id="caseType" name="caseType" required>
+                                <option value="">-- Select --</option>
+                                <option value="custody">Custody / Divorce</option>
+                                <option value="cps">Child Protective Services</option>
+                                <option value="guardianship">Guardianship</option>
+                                <option value="visitation">Visitation</option>
+                                <option value="other">Other</option>
+                            </select>
+                            <div class="error-msg" id="caseType-error" role="alert" aria-live="polite" style="display:none;">Please select a case type.</div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="caseStatus">Current Status of Your Case <span aria-hidden="true">*</span></label>
+                            <select id="caseStatus" name="caseStatus" required>
+                                <option value="">-- Select --</option>
+                                <option value="ongoing">Ongoing</option>
+                                <option value="resolved">Resolved</option>
+                                <option value="appealed">Appealed / In Appeal</option>
+                            </select>
+                            <div class="error-msg" id="caseStatus-error" role="alert" aria-live="polite" style="display:none;">Please select a case status.</div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="selfRepresented">Were You Self-Represented? <span aria-hidden="true">*</span></label>
+                            <select id="selfRepresented" name="selfRepresented" required>
+                                <option value="">-- Select --</option>
+                                <option value="yes_whole">Yes, the whole time</option>
+                                <option value="no_lawyer">No, I had a lawyer</option>
+                                <option value="part_time">Part of the time</option>
+                            </select>
+                            <div class="error-msg" id="selfRep-error" role="alert" aria-live="polite" style="display:none;">Please select an option.</div>
+                        </div>
+
+                        <hr class="form-divider">
+
+                        <!-- Participation Barriers -->
+                        <div class="form-group">
+                            <label as="legend">What affected your ability to participate? <span style="font-weight:400; color:#5a6a68;">(Check all that apply)</span></label>
+                            <div class="checkbox-group" role="group" aria-label="Participation barriers">
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="attention" name="barriers" value="attention">
+                                    <label for="attention">Attention / Focus difficulties</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="memory" name="barriers" value="memory">
+                                    <label for="memory">Memory or recall difficulties</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="anxiety" name="barriers" value="anxiety">
+                                    <label for="anxiety">Anxiety / Panic / Overwhelm</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="processing" name="barriers" value="processing">
+                                    <label for="processing">Processing speed</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="communication" name="barriers" value="communication">
+                                    <label for="communication">Communication barriers</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="executive" name="barriers" value="executive">
+                                    <label for="executive">Executive function</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="mobility" name="barriers" value="mobility">
+                                    <label for="mobility">Mobility / Physical access</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="sensory" name="barriers" value="sensory">
+                                    <label for="sensory">Sensory barriers</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="chronic" name="barriers" value="chronic">
+                                    <label for="chronic">Chronic illness or pain</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="language" name="barriers" value="language">
+                                    <label for="language">Language / Translation</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="economic" name="barriers" value="economic">
+                                    <label for="economic">Economic barriers</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="trauma" name="barriers" value="trauma">
+                                    <label for="trauma">Trauma / PTSD</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="nobarriers" name="barriers" value="nobarriers">
+                                    <label for="nobarriers">No specific barriers — I was just not heard</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="other" name="barriers" value="other">
+                                    <label for="other">Other</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Accommodation -->
+                        <div class="form-group">
+                            <label for="accommodationAsked">Did you ask for any accommodation or support? <span aria-hidden="true">*</span></label>
+                            <select id="accommodationAsked" name="accommodationAsked" required>
+                                <option value="">-- Select --</option>
+                                <option value="yes">Yes, I asked</option>
+                                <option value="no_didnt_know">No — I didn't know I could</option>
+                                <option value="no_afraid">No — I was afraid to ask</option>
+                                <option value="no_other">No — other reason</option>
+                                <option value="na">Not applicable</option>
+                            </select>
+                            <div class="error-msg" id="accommodation-error" role="alert" aria-live="polite" style="display:none;">Please select an option.</div>
+                        </div>
+
+                        <div class="form-group" id="accommodationResultGroup">
+                            <label for="accommodationResult">If you asked — what happened?</label>
+                            <select id="accommodationResult" name="accommodationResult">
+                                <option value="">-- Select --</option>
+                                <option value="granted_fully">It was granted fully</option>
+                                <option value="granted_partially">It was granted partially</option>
+                                <option value="denied">It was denied</option>
+                                <option value="ignored">It was ignored</option>
+                                <option value="retaliated">I faced pushback or retaliation</option>
+                            </select>
+                        </div>
+
+                        <hr class="form-divider">
+
+                        <!-- Story -->
+                        <div class="form-group">
+                            <label for="story">Your Story <span aria-hidden="true">*</span></label>
+                            <p class="form-hint">Share what happened. What barriers did you face? What do you want others to know? There is no wrong way to tell it.</p>
+                            <textarea id="story" name="story" required placeholder="Share your experience…" style="min-height:140px; margin-top:0.4rem;"></textarea>
+                            <div class="error-msg" id="story-error" role="alert" aria-live="polite" style="display:none;">Please share your story before submitting.</div>
+                        </div>
+
+                        <!-- Reflective prompt -->
+                        <div class="form-group">
+                            <label for="lookingBack">If you could go back, what would you tell yourself? <span style="font-weight:400; color:#5a6a68;">(optional)</span></label>
+                            <p class="form-hint">A moment, a quote, a journal entry, or a detail that captures what this was like.</p>
+                            <textarea id="lookingBack" name="lookingBack" placeholder="Optional reflection…" style="min-height:90px; margin-top:0.4rem;"></textarea>
+                        </div>
+
+                        <hr class="form-divider">
+
+                        <!-- Story-Use Permission -->
+                        <div class="consent-block" role="group" aria-labelledby="permission-title">
+                            <div class="consent-title" id="permission-title">How may your story be used? <span aria-hidden="true">*</span></div>
+                            <p class="form-hint" style="margin-bottom:0.75rem;">Your story will never be published without your explicit permission. Choose the level you're comfortable with.</p>
+
+                            <div class="radio-item">
+                                <input type="radio" id="perm_research" name="storyPermission" value="research_only" required>
+                                <label for="perm_research"><strong>Research only</strong> — Use my story for analysis, but don't quote or identify me.</label>
+                            </div>
+                            <div class="radio-item">
+                                <input type="radio" id="perm_anon_quote" name="storyPermission" value="anonymous_quote">
+                                <label for="perm_anon_quote"><strong>Anonymous quote</strong> — You may use a quote, but with no identifying details.</label>
+                            </div>
+                            <div class="radio-item">
+                                <input type="radio" id="perm_first_name" name="storyPermission" value="first_name">
+                                <label for="perm_first_name"><strong>First name or initials</strong> — You may identify me by first name or initials.</label>
+                            </div>
+                            <div class="radio-item">
+                                <input type="radio" id="perm_full_name" name="storyPermission" value="full_name">
+                                <label for="perm_full_name"><strong>Full name</strong> — You may use my full name.</label>
+                            </div>
+                            <div class="error-msg" id="permission-error" role="alert" aria-live="polite" style="display:none;">Please choose how your story may be used.</div>
+                        </div>
+
+                        <!-- Required consent checkbox -->
+                        <div class="required-consent">
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="consent" name="consent" required aria-required="true">
+                                <label for="consent">I understand this is a voluntary research and advocacy project. My submission is not legal advice and does not create an attorney-client relationship. I consent to share my story under the terms I selected above.</label>
+                            </div>
+                            <div class="error-msg" id="consent-error" role="alert" aria-live="polite" style="display:none;">Please check this box to continue.</div>
+                        </div>
+
+                        <button type="submit">Submit Your Story</button>
+
+                        <div class="post-submit-links">
+                            <a href="https://www.facebook.com/share/g/15zBXXe7DVZ/" target="_blank" rel="noopener" class="btn btn-primary post-submit-links">Join the Community on Facebook</a>
+                            <a href="https://www.facebook.com/profile.php?id=61588972000650" target="_blank" rel="noopener" class="btn btn-primary">Connect with Katie</a>
+                        </div>
+
+                    </form>
+
+                    <div id="successMessage" role="status" aria-live="polite">
+                        <h3>Thank you.</h3>
+                        <p>Your story has been received. It matters.</p>
+                        <p style="margin-top:0.5rem; font-size:0.9rem; color:#3a6e66;">You can join the community or connect with Katie using the links above.</p>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+        <!-- Meet Katie -->
+        <footer>
+            <section class="meet-katie" aria-labelledby="katie-heading">
+                <div class="katie-container">
+                    <h2 id="katie-heading">Meet Katie</h2>
+                    <img src="/katie-photo.png" alt="Katie Copeland, Texas attorney and family court advocate" class="katie-photo">
+                    <h3>Katie Copeland</h3>
+                    <p style="font-weight:500; margin-bottom:0.5rem; font-size:0.95rem;">Texas Attorney &amp; Advocate</p>
+                    <p style="font-weight:400; font-size:0.93rem;">I'm here to listen and preserve these stories with care.</p>
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/in/unrealkatiecopeland/" target="_blank" rel="noopener">LinkedIn</a>
+                        <a href="https://www.facebook.com/profile.php?id=61588972000650" target="_blank" rel="noopener">Facebook</a>
+                    </div>
+                </div>
+            </section>
+        </footer>
+
+    </div><!-- #root -->
+
+    <style>
+        .sr-only {
+            position: absolute; width: 1px; height: 1px;
+            padding: 0; margin: -1px; overflow: hidden;
+            clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+        }
+    </style>
+
+    <script>
+        // Show/hide accommodation result based on whether they asked
+        document.getElementById('accommodationAsked').addEventListener('change', function() {
+            const resultGroup = document.getElementById('accommodationResultGroup');
+            resultGroup.style.display = this.value === 'yes' ? 'block' : 'none';
+        });
+        document.getElementById('accommodationResultGroup').style.display = 'none';
+
+        // Form submission
+        document.getElementById('storyForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+
+            // Validate required fields
+            let valid = true;
+
+            function setError(fieldId, errorId, show) {
+                const field = document.getElementById(fieldId);
+                const err = document.getElementById(errorId);
+                if (show) {
+                    field && field.classList.add('field-error');
+                    err && (err.style.display = 'block');
+                    valid = false;
+                } else {
+                    field && field.classList.remove('field-error');
+                    err && (err.style.display = 'none');
+                }
+            }
+
+            const country = document.getElementById('country').value.trim();
+            setError('country', 'country-error', !country);
+
+            const caseType = document.getElementById('caseType').value;
+            setError('caseType', 'caseType-error', !caseType);
+
+            const caseStatus = document.getElementById('caseStatus').value;
+            setError('caseStatus', 'caseStatus-error', !caseStatus);
+
+            const selfRepresented = document.getElementById('selfRepresented').value;
+            setError('selfRepresented', 'selfRep-error', !selfRepresented);
+
+            const accommodationAsked = document.getElementById('accommodationAsked').value;
+            setError('accommodationAsked', 'accommodation-error', !accommodationAsked);
+
+            const story = document.getElementById('story').value.trim();
+            setError('story', 'story-error', !story);
+
+            const permission = document.querySelector('input[name="storyPermission"]:checked');
+            const permErr = document.getElementById('permission-error');
+            if (!permission) {
+                permErr.style.display = 'block';
+                valid = false;
+            } else {
+                permErr.style.display = 'none';
+            }
+
+            const consent = document.getElementById('consent').checked;
+            const consentErr = document.getElementById('consent-error');
+            if (!consent) {
+                consentErr.style.display = 'block';
+                valid = false;
+            } else {
+                consentErr.style.display = 'none';
+            }
+
+            if (!valid) {
+                // Scroll to first error
+                const firstError = document.querySelector('.field-error, .error-msg[style*="block"]');
+                if (firstError) firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                return;
+            }
+
+            // Collect data
+            const name = document.getElementById('name').value.trim() || 'Anonymous';
+            const email = document.getElementById('email').value.trim();
+            const stateProvince = document.getElementById('stateProvince').value.trim();
+            const accommodationResult = document.getElementById('accommodationResult').value;
+            const barriers = Array.from(document.querySelectorAll('input[name="barriers"]:checked')).map(el => el.value);
+            const lookingBack = document.getElementById('lookingBack').value.trim();
+            const storyPermission = permission.value;
+
+            const barrierMap = {
+                'attention': 'Attention / Focus',
+                'memory': 'Memory',
+                'anxiety': 'Anxiety / Overwhelm',
+                'processing': 'Processing Speed',
+                'communication': 'Communication',
+                'executive': 'Executive Function',
+                'mobility': 'Mobility / Physical',
+                'sensory': 'Sensory',
+                'chronic': 'Chronic Illness / Pain',
+                'language': 'Language / Translation',
+                'economic': 'Economic',
+                'trauma': 'Trauma / PTSD',
+                'nobarriers': 'No barriers — just not heard',
+                'other': 'Other'
+            };
+
+            const caseTypeMap = { 'custody': 'Custody', 'cps': 'CPS', 'guardianship': 'Guardianship', 'visitation': 'Visitation', 'other': 'Other' };
+            const caseStatusMap = { 'ongoing': 'Ongoing', 'resolved': 'Resolved', 'appealed': 'Appealed' };
+            const selfRepMap = { 'yes_whole': 'Yes', 'no_lawyer': 'No', 'part_time': 'Partial' };
+            const permissionMap = {
+                'research_only': 'Research only',
+                'anonymous_quote': 'Anonymous quote',
+                'first_name': 'First name / initials',
+                'full_name': 'Full name'
+            };
+
+            const mappedBarriers = barriers.map(b => barrierMap[b] || b);
+
+            const properties = {
+                'Name': { 'title': [{ 'text': { 'content': name } }] },
+                'Email': { 'email': email || null },
+                'Country': { 'rich_text': [{ 'text': { 'content': country } }] },
+                'State/Province/Region': { 'rich_text': [{ 'text': { 'content': stateProvince } }] },
+                'Case Type': { 'multi_select': [{ 'name': caseTypeMap[caseType] || caseType }] },
+                'Case Status': { 'select': { 'name': caseStatusMap[caseStatus] || caseStatus } },
+                'Self-Represented': { 'select': { 'name': selfRepMap[selfRepresented] || selfRepresented } },
+                'Accommodation Asked': { 'select': { 'name': accommodationAsked } },
+                'Accommodation Result': accommodationResult ? { 'select': { 'name': accommodationResult } } : { 'select': null },
+                'Participation Barriers': { 'multi_select': mappedBarriers.map(b => ({ 'name': b })) },
+                'Story': { 'rich_text': [{ 'text': { 'content': story } }] },
+                'Looking Back': lookingBack ? { 'rich_text': [{ 'text': { 'content': lookingBack } }] } : { 'rich_text': [] },
+                'Story Permission': { 'select': { 'name': permissionMap[storyPermission] || storyPermission } },
+                'Consent': { 'checkbox': true }
+            };
+
+            // Disable submit while sending
+            const submitBtn = document.querySelector('button[type="submit"]');
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Submitting…';
+
+            try {
+                const response = await fetch('/api/submit-story', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ properties })
+                });
+
+                if (response.ok) {
+                    document.getElementById('storyForm').style.display = 'none';
+                    document.getElementById('successMessage').classList.add('show');
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                } else {
+                    const error = await response.json();
+                    console.error('Server error:', error);
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = 'Submit Your Story';
+                    alert('There was an issue submitting your story. Please try again or contact Katie directly.');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Submit Your Story';
+                alert('There was a connection issue. Please check your internet and try again.');
+            }
+        });
+    </script>
+</body>
+</html>

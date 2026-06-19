@@ -1,0 +1,29 @@
+Source notes from uploaded PDFs for Rights Require Routes / Custody Crisis story form
+
+1) From /home/ubuntu/upload/RightsRequireRoutes_ShareYourStory.pdf
+- Tone is trust-based and listening-centered.
+- Key promises include: every story is read carefully; every story contributes to deeper understanding; if the person chooses, the story may become part of future writing or research; the person remains in control of how the story is used; nothing is ever published without permission.
+- Form fields shown include country, state/province/region, case type, case status, self-represented, participation barriers, accommodation/support request, what happened, what would you tell yourself, what advice would you give someone starting, a moment that captures the feeling of it, and story-use permission options.
+
+2) From /home/ubuntu/upload/CustodyCrisis—Stories.Research.Change_.pdf
+- Project framing: research and advocacy project collecting stories to document patterns, not provide legal advice or fix individual cases.
+- Includes crisis resources near the top.
+- Participation barriers list is more detailed than current page and includes:
+  attention/focus difficulties; memory or recall difficulties; anxiety/panic/emotional overwhelm; difficulty processing information quickly; communication barriers; executive function barriers; mobility or physical access barriers; sensory barriers; chronic illness or pain; trauma or PTSD; other barrier; no specific barriers, I was just not heard.
+- Includes accommodation request section with two required selects:
+  a) Did you ask for any accommodation or support?
+  b) What happened?
+- Includes optional reflective textareas:
+  a) If you could go back in time, what would you tell yourself?
+  b) What advice would you give to someone just starting this process?
+  c) A moment, a quote, a journal entry, or a detail that captures what this was like.
+- Includes story-use permission options (radio buttons), not just a single checkbox:
+  a) Research only: Use my story for analysis, but don't quote or identify me.
+  b) Anonymous quote: You can use a quote, but with no identifying details.
+  c) First name or initials: You can identify me by first name or initials.
+  d) Full name: You can use my full name.
+
+Most important conclusion:
+- The current live page is missing the more complete permission choices and several intake questions shown in the PDFs.
+- The user was correct that the richer version existed in the PDFs even though it is not present in the currently running HTML.
+- For the next edit pass, prioritize: tighter spacing, better mobile responsiveness, larger/tappable checkbox targets, fixing consent behavior, and restoring the story-use permission controls plus accommodation questions.
