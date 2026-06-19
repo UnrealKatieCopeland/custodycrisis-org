@@ -607,6 +607,11 @@
                             <div class="error-msg" id="accommodation-error" role="alert" aria-live="polite" style="display:none;">Please select an option.</div>
                         </div>
 
+                        <div class="form-group" id="noOtherReasonGroup" style="display:none;">
+                            <label for="noOtherReasonText" style="font-size:0.95rem; color:#1A2F2C;">What was the reason you didn't ask?</label>
+                            <input type="text" id="noOtherReasonText" name="noOtherReason" placeholder="Tell us more…" style="margin-top:0.4rem; width:100%; padding:0.65rem 0.85rem; border:1.5px solid #b0ccc9; border-radius:6px; font-family:inherit; font-size:1rem; background:#fff; color:#1A2F2C;" aria-label="Reason for not asking for accommodation">
+                        </div>
+
                         <div class="form-group" id="accommodationResultGroup">
                             <label for="accommodationResult">If you asked — what happened?</label>
                             <select id="accommodationResult" name="accommodationResult">
@@ -634,6 +639,13 @@
                             <label for="lookingBack">If you could go back, what would you tell yourself? <span style="font-weight:400; color:#5a6a68;">(optional)</span></label>
                             <p class="form-hint">A moment, a quote, a journal entry, or a detail that captures what this was like.</p>
                             <textarea id="lookingBack" name="lookingBack" placeholder="Optional reflection…" style="min-height:90px; margin-top:0.4rem;"></textarea>
+                        </div>
+
+                        <!-- Book input question -->
+                        <div class="form-group">
+                            <label for="bookInput">What do you wish the world understood? <span style="font-weight:400; color:#5a6a68;">(optional)</span></label>
+                            <p class="form-hint">If there was one thing that needed to be in a book to make people truly understand what you went through — what would it be? Your answer could shape what gets written.</p>
+                            <textarea id="bookInput" name="bookInput" placeholder="What the world needs to see…" style="min-height:100px; margin-top:0.4rem;"></textarea>
                         </div>
 
                         <hr class="form-divider">
@@ -684,7 +696,12 @@
                     <div id="successMessage" role="status" aria-live="polite">
                         <h3>Thank you.</h3>
                         <p>Your story has been received. It matters.</p>
-                        <p style="margin-top:0.5rem; font-size:0.9rem; color:#3a6e66;">You can join the community or connect with Katie using the links above.</p>
+                        <div style="background:#f0f7f6; border-left:4px solid #1A7C72; border-radius:0 8px 8px 0; padding:1.1rem 1.25rem; margin:1.25rem 0; text-align:left;">
+                            <p style="font-weight:600; color:#135C54; margin-bottom:0.4rem; font-size:1rem;">A starting place, while you wait for more.</p>
+                            <p style="font-size:0.95rem; color:#1A2F2C; margin-bottom:0.75rem;">The <strong>Litigant Toolkit</strong> won’t fix the system — but it can help you understand it. It’s a free resource built for people navigating family court without a lawyer.</p>
+                            <a href="https://www.katiecopeland.com/litigant-toolkit" target="_blank" rel="noopener" style="display:inline-block; padding:0.65rem 1.4rem; background:#59304D; color:#F5F1EB; border-radius:6px; font-weight:600; font-size:0.95rem; text-decoration:none;">Access the Litigant Toolkit →</a>
+                        </div>
+                        <p style="margin-top:0.5rem; font-size:0.9rem; color:#3a6e66;">You can also join the community or connect with Katie using the links above.</p>
                     </div>
                 </div>
             </section>
@@ -726,12 +743,16 @@
                 if (!this.checked) document.getElementById('otherBarrierText').value = '';
             });
 
-            // Show/hide accommodation result based on whether they asked
+            // Show/hide accommodation result and no_other reason field
         document.getElementById('accommodationAsked').addEventListener('change', function() {
             const resultGroup = document.getElementById('accommodationResultGroup');
+            const noOtherGroup = document.getElementById('noOtherReasonGroup');
             resultGroup.style.display = this.value === 'yes' ? 'block' : 'none';
+            noOtherGroup.style.display = this.value === 'no_other' ? 'block' : 'none';
+            if (this.value !== 'no_other') document.getElementById('noOtherReasonText').value = '';
         });
         document.getElementById('accommodationResultGroup').style.display = 'none';
+        document.getElementById('noOtherReasonGroup').style.display = 'none';
 
         // Form submission
         document.getElementById('storyForm').addEventListener('submit', async function(e) {
@@ -832,6 +853,8 @@
             };
 
             const otherBarrierText = document.getElementById('otherBarrierText').value.trim();
+            const noOtherReasonText = document.getElementById('noOtherReasonText').value.trim();
+            const bookInput = document.getElementById('bookInput').value.trim();
             const mappedBarriers = barriers.map(b => {
                 if (b === 'other' && otherBarrierText) return 'Other: ' + otherBarrierText;
                 return barrierMap[b] || b;
@@ -852,7 +875,9 @@
                 'Looking Back': lookingBack ? { 'rich_text': [{ 'text': { 'content': lookingBack } }] } : { 'rich_text': [] },
                 'Story Permission': { 'select': { 'name': permissionMap[storyPermission] || storyPermission } },
                 'Consent': { 'checkbox': true },
-                'Other Barrier Detail': otherBarrierText ? { 'rich_text': [{ 'text': { 'content': otherBarrierText } }] } : { 'rich_text': [] }
+                'Other Barrier Detail': otherBarrierText ? { 'rich_text': [{ 'text': { 'content': otherBarrierText } }] } : { 'rich_text': [] },
+                'No-Ask Reason': noOtherReasonText ? { 'rich_text': [{ 'text': { 'content': noOtherReasonText } }] } : { 'rich_text': [] },
+                'What the World Needs to See': bookInput ? { 'rich_text': [{ 'text': { 'content': bookInput } }] } : { 'rich_text': [] }
             };
 
             // Disable submit while sending
