@@ -1,0 +1,12 @@
+name = "custodycrisis-api"
+main = "worker.js"
+compatibility_date = "2024-01-01"
+account_id = "477668656ef220944da2b2ceceae28d8"
+
+[vars]
+NOTION_DATABASE_ID = "9483eb53-9bc8-45e0-bba4-b5be3b33f399"
+
+# Routes — handle /api/* on custodycrisis.org
+[[routes]]
+pattern = "custodycrisis.org/api/*"
+zone_name = "custodycrisis.org"
